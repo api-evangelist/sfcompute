@@ -1,0 +1,130 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SF Compute
+providerId: sfcompute
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- GPU
+- Compute
+- Marketplace
+- H100
+- Spot Pricing
+- Plans
+description: >-
+  SF Compute is a market, not a fixed-rate cloud. There is no single price per
+  GPU/hour - each block of compute is priced independently by the orderbook,
+  and the rate a buyer pays is whatever clears against open sell orders for the
+  requested instance type, quantity, start window, and duration. The /v0/quote
+  endpoint returns an indicative price for a desired block; published marketing
+  figures (e.g. "H100 nodes from ~$1.94/gpu/hr") are starting points, not
+  contractual rates. Sellers can list unused contract time back to the market.
+  Prices below are reconciled=false because they float with the market.
+notes: >-
+  Per-GPU-hour rates are market-driven and change continuously; the from-price
+  is a marketing reference observed on sfcompute.com/prices and should be
+  re-verified at reconciliation via /v0/quote. Billing is in USD cents.
+sources:
+- https://sfcompute.com/prices
+- https://docs.sfcompute.com/docs/how-the-market-works
+- https://docs.sfcompute.com/docs/using-the-api
+plans:
+- id: sfcompute-market
+  name: GPU Compute Market
+  type: usage
+  description: >-
+    Spot-priced market for blocks of GPU-hours. Buyers place buy orders at a
+    price they are willing to pay; orders fill against the orderbook and resolve
+    into contracts. Each block is priced independently - no flat per-GPU-hour
+    rate.
+  entries:
+  - label: H100 (Kubernetes, h100i) per GPU-hour
+    name: h100i_gpu_hour
+    type: usage
+    metric: gpu_hours
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: market-priced per block (from ~$1.94/gpu/hr reference); see /v0/quote
+    userMultiplied: false
+  - label: H100 (Virtual Machine, h100v) per GPU-hour
+    name: h100v_gpu_hour
+    type: usage
+    metric: gpu_hours
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: market-priced per block; see /v0/quote
+    userMultiplied: false
+  - label: H200 (Kubernetes, h200ki) per GPU-hour
+    name: h200ki_gpu_hour
+    type: usage
+    metric: gpu_hours
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: market-priced per block; see /v0/quote
+    userMultiplied: false
+  - label: Reselling (sell unused contract time)
+    name: resale
+    type: usage
+    metric: gpu_hours
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: seller-set price clears against market buy orders
+    userMultiplied: false
+  elements:
+  - name: Orders / Market
+  - name: Contracts
+  - name: Prices / Quote
+  - name: Clusters / Nodes
+  - name: Reselling
+- id: sfcompute-inference
+  name: Inference Fleet
+  type: usage
+  description: >-
+    OpenAI-compatible inference served on SF Compute capacity. Pricing follows
+    the underlying GPU capacity used to host the fleet.
+  entries:
+  - label: Inference Capacity
+    name: inference_capacity
+    type: usage
+    metric: gpu_hours
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: derived from underlying market GPU capacity
+    userMultiplied: false
+  elements:
+  - name: Inference
+- id: sfcompute-enterprise
+  name: Enterprise / Reserved
+  type: enterprise
+  description: >-
+    Larger reserved capacity, dedicated clusters, and negotiated terms for
+    sustained pre-training workloads. Contact SF Compute.
+  entries:
+  - label: Reserved Capacity
+    name: reserved
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Reserved Clusters
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

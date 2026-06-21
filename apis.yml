@@ -1,0 +1,164 @@
+aid: sfcompute
+url: https://raw.githubusercontent.com/api-evangelist/sfcompute/refs/heads/main/apis.yml
+name: SF Compute
+kind: company
+description: SF Compute (San Francisco Compute Company) runs a spot-priced market for
+  very large scale GPU clusters. The api.sfcompute.com REST API lets buyers and sellers
+  place market orders for blocks of H100 GPU-hours, manage tradable cluster contracts,
+  query live market prices, check balances, and provision managed Kubernetes clusters,
+  nodes, and VMs - all driven by the `sf` CLI and language SDKs.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- GPU
+- Compute
+- Marketplace
+- H100
+- Spot Pricing
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: sfcompute:orders-market
+  name: SF Compute Orders / Market API
+  tags:
+  - Orders
+  - Market
+  - GPU
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://docs.sfcompute.com/docs/orders
+    type: Documentation
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  - url: collections/sfcompute.postman_collection.json
+    type: Postman
+  description: Place, list, fetch, and cancel buy/sell market orders for blocks of
+    GPU compute. Buy orders specify instance type, quantity, price, duration, and
+    start; sell orders list unused contract time back to the market. Orders fill
+    against the orderbook and resolve into contracts.
+- aid: sfcompute:contracts
+  name: SF Compute Contracts API
+  tags:
+  - Contracts
+  - Clusters
+  - Reselling
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://docs.sfcompute.com/guide/reselling
+    type: Documentation
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  - url: collections/sfcompute.postman_collection.json
+    type: Postman
+  description: List and retrieve tradable cluster contracts - the multi-node H100
+    InfiniBand reservations produced when buy orders fill. Contracts carry an
+    instance type, an interval/quantity shape, optional zone and cluster, and can
+    be resold by placing sell orders.
+- aid: sfcompute:prices
+  name: SF Compute Prices / Quote API
+  tags:
+  - Prices
+  - Quote
+  - Spot
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/docs/how-the-market-works
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://sfcompute.com/prices
+    type: Documentation
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  - url: collections/sfcompute.postman_collection.json
+    type: Postman
+  description: Request a live market quote for a desired instance type, quantity,
+    duration, and start window. Returns an indicative per-GPU-hour and total price
+    derived from current orderbook depth. There is no single fixed price per
+    GPU-hour - each block is priced independently by the market.
+- aid: sfcompute:clusters-nodes
+  name: SF Compute Clusters / Nodes API
+  tags:
+  - Clusters
+  - Nodes
+  - Kubernetes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/docs/nodes
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://docs.sfcompute.com/docs/nodes
+    type: Documentation
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  - url: collections/sfcompute.postman_collection.json
+    type: Postman
+  description: Manage managed-Kubernetes clusters, nodes, VM instances, procurements
+    (auto-scaling fleets), and the kubeconfig credentials used to reach them.
+    Covers listing instances and zones, fetching clusters tied to an order, and
+    provisioning, redeploying, extending, and releasing nodes.
+- aid: sfcompute:balance
+  name: SF Compute Balance API
+  tags:
+  - Balance
+  - Billing
+  - Account
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://docs.sfcompute.com/docs/using-the-api
+    type: Documentation
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  - url: collections/sfcompute.postman_collection.json
+    type: Postman
+  description: Read account balance (available and current cents), credit balance,
+    transactions, and account identity. Used to confirm spend headroom before
+    placing market orders and to reconcile usage.
+- aid: sfcompute:inference
+  name: SF Compute Inference API
+  tags:
+  - Inference
+  - LLM
+  - OpenAI Compatible
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sfcompute.com/guide/inference-fleet
+  baseURL: https://api.sfcompute.com/v0
+  properties:
+  - url: https://docs.sfcompute.com/guide/inference-fleet
+    type: Documentation
+  - url: openapi/sfcompute-openapi.yml
+    type: OpenAPI
+  description: OpenAI-compatible inference served on SF Compute capacity. Models are
+    listed via the models endpoint and called through a standard chat completions
+    interface, letting bought GPU capacity be exposed as an inference fleet.
+common:
+- type: GitHubOrganization
+  url: https://github.com/sfcompute
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sfcompute
+- type: Website
+  url: https://sfcompute.com
+- type: Documentation
+  url: https://docs.sfcompute.com
+- type: Plans
+  url: plans/sfcompute-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sfcompute-rate-limits.yml
+- type: FinOps
+  url: finops/sfcompute-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

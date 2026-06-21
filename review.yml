@@ -1,0 +1,87 @@
+aid: sfcompute
+name: SF Compute
+review:
+  question: Does SF Compute expose a documented public WebSocket or streaming API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. The SF Compute REST API at
+    https://api.sfcompute.com/v0 is request/response only. No WebSocket
+    (ws:// or wss://) endpoint and no HTTP Server-Sent Events (SSE) stream
+    is documented in the API reference, the docs, or the open-source `sf`
+    CLI. The market-quote endpoint is a long-polling REST GET (the CLI uses
+    a 600s client timeout), which is still synchronous request/response and
+    not an event-driven transport, so it is out of scope for AsyncAPI.
+findings:
+  summary: |
+    SF Compute (San Francisco Compute Company) runs a spot-priced market for
+    large-scale GPU clusters, exposed through a REST API under
+    https://api.sfcompute.com/v0 with Bearer API-token auth (tokens created
+    via `sf tokens create`). Confirmed surfaces: market orders (buy/sell),
+    contracts, market quotes/prices, balance and transactions, procurements
+    (auto-scaling fleets), instances, zones, credentials, VM instances, and
+    account/token management. An OpenAI-compatible inference fleet is offered
+    on top of bought capacity. Endpoint paths were taken from the official
+    open-source `sf` CLI (sfcompute/cli) URL map. No streaming/WebSocket
+    transport is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.sfcompute.com/v0
+      documented: true
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events stream is documented for any SF Compute endpoint.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in the API reference, docs, or the sf CLI as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.sfcompute.com/v0/orders
+    - POST   https://api.sfcompute.com/v0/orders
+    - DELETE https://api.sfcompute.com/v0/orders
+    - GET    https://api.sfcompute.com/v0/orders/{id}
+    - DELETE https://api.sfcompute.com/v0/orders/{id}
+    - GET    https://api.sfcompute.com/v0/orders/{id}/clusters
+    - GET    https://api.sfcompute.com/v0/quote
+    - GET    https://api.sfcompute.com/v0/contracts
+    - GET    https://api.sfcompute.com/v0/contracts/{id}
+    - GET    https://api.sfcompute.com/v0/procurements
+    - POST   https://api.sfcompute.com/v0/procurements
+    - GET    https://api.sfcompute.com/v0/procurements/{id}
+    - GET    https://api.sfcompute.com/v0/instances
+    - GET    https://api.sfcompute.com/v0/instances/{id}
+    - GET    https://api.sfcompute.com/v0/zones
+    - GET    https://api.sfcompute.com/v0/credentials
+    - POST   https://api.sfcompute.com/v0/credentials
+    - GET    https://api.sfcompute.com/v0/vms/instances
+    - GET    https://api.sfcompute.com/v0/balance
+    - GET    https://api.sfcompute.com/v0/transactions
+    - GET    https://api.sfcompute.com/v0/tokens
+    - POST   https://api.sfcompute.com/v0/tokens
+    - DELETE https://api.sfcompute.com/v0/tokens/{id}
+    - GET    https://api.sfcompute.com/v0/me
+    - GET    https://api.sfcompute.com/v0/ping
+sources:
+  - url: https://docs.sfcompute.com/docs/using-the-api
+    type: Documentation
+    note: Shows base URL https://api.sfcompute.com/v0 and Bearer token auth; example GET /v0/orders.
+  - url: https://fogdocs.sfcompute.com/api-reference
+    type: APIReference
+    note: Lists Orders, Contracts, Prices, Balance, Procurements, Clusters, Account, VMs, Models, Orderbook resources.
+  - url: https://github.com/sfcompute/cli
+    type: SourceCode
+    note: Open-source sf CLI; src/helpers/urls.ts enumerates the /v0 API path map used to confirm endpoints.
+  - url: https://sfcompute.com/prices
+    type: Documentation
+    note: Market pricing - H100 nodes from a reference per-gpu-hour rate; no single fixed price per GPU-hour.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE protocol surface exists, so no AsyncAPI document was
+    authored. The catalog models the documented REST surface only, with
+    endpoint paths confirmed against the official open-source sf CLI.

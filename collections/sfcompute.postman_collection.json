@@ -1,0 +1,482 @@
+{
+  "item": [
+    {
+      "name": "Orders",
+      "description": {
+        "content": "Buy/sell market orders for blocks of GPU compute.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders"],
+              "host": ["{{baseUrl}}"],
+              "query": [
+                { "key": "side", "value": "buy" },
+                { "key": "instance_type", "value": "h100i" },
+                { "key": "only_open", "value": "true" },
+                { "key": "limit", "value": "50" },
+                { "key": "offset", "value": "0" }
+              ],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Place an order",
+          "request": {
+            "name": "Place an order",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"buy\",\n  \"instance_type\": \"h100i\",\n  \"quantity\": 8,\n  \"price\": 250000,\n  \"duration\": 86400,\n  \"start_at\": \"NOW\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Cancel all open orders",
+          "request": {
+            "name": "Cancel all open orders",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          }
+        },
+        {
+          "name": "Get an order",
+          "request": {
+            "name": "Get an order",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders", ":id"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Cancel an order",
+          "request": {
+            "name": "Cancel an order",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders", ":id"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          }
+        },
+        {
+          "name": "Get clusters for an order",
+          "request": {
+            "name": "Get clusters for an order",
+            "description": {},
+            "url": {
+              "path": ["v0", "orders", ":id", "clusters"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Prices",
+      "description": {
+        "content": "Live market quotes for blocks of GPU compute.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get a market quote",
+          "request": {
+            "name": "Get a market quote",
+            "description": {},
+            "url": {
+              "path": ["v0", "quote"],
+              "host": ["{{baseUrl}}"],
+              "query": [
+                { "key": "side", "value": "buy" },
+                { "key": "instance_type", "value": "h100i" },
+                { "key": "quantity", "value": "8" },
+                { "key": "min_start_date", "value": "NOW" },
+                { "key": "min_duration", "value": "86400" },
+                { "key": "max_duration", "value": "86400" }
+              ],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Contracts",
+      "description": {
+        "content": "Tradable cluster contracts produced by filled orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "List contracts",
+          "request": {
+            "name": "List contracts",
+            "description": {},
+            "url": {
+              "path": ["v0", "contracts"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Get a contract",
+          "request": {
+            "name": "Get a contract",
+            "description": {},
+            "url": {
+              "path": ["v0", "contracts", ":id"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Clusters",
+      "description": {
+        "content": "Procurements, instances, zones, and credentials.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "List procurements",
+          "request": {
+            "name": "List procurements",
+            "description": {},
+            "url": {
+              "path": ["v0", "procurements"],
+              "host": ["{{baseUrl}}"],
+              "query": [{ "key": "limit", "value": "50" }, { "key": "offset", "value": "0" }],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Create a procurement",
+          "request": {
+            "name": "Create a procurement",
+            "description": {},
+            "url": {
+              "path": ["v0", "procurements"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Get a procurement",
+          "request": {
+            "name": "Get a procurement",
+            "description": {},
+            "url": {
+              "path": ["v0", "procurements", ":id"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "List instances",
+          "request": {
+            "name": "List instances",
+            "description": {},
+            "url": {
+              "path": ["v0", "instances"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "List zones",
+          "request": {
+            "name": "List zones",
+            "description": {},
+            "url": {
+              "path": ["v0", "zones"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "List credentials",
+          "request": {
+            "name": "List credentials",
+            "description": {},
+            "url": {
+              "path": ["v0", "credentials"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "List VM instances",
+          "request": {
+            "name": "List VM instances",
+            "description": {},
+            "url": {
+              "path": ["v0", "vms", "instances"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Balance",
+      "description": {
+        "content": "Account balance and transactions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get account balance",
+          "request": {
+            "name": "Get account balance",
+            "description": {},
+            "url": {
+              "path": ["v0", "balance"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {},
+            "url": {
+              "path": ["v0", "transactions"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "name": "Account",
+      "description": {
+        "content": "Tokens and account identity.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "List API tokens",
+          "request": {
+            "name": "List API tokens",
+            "description": {},
+            "url": {
+              "path": ["v0", "tokens"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Create an API token",
+          "request": {
+            "name": "Create an API token",
+            "description": {},
+            "url": {
+              "path": ["v0", "tokens"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "method": "POST",
+            "auth": null,
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } }
+          }
+        },
+        {
+          "name": "Delete an API token",
+          "request": {
+            "name": "Delete an API token",
+            "description": {},
+            "url": {
+              "path": ["v0", "tokens", ":id"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": [{ "key": "id", "value": "" }]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null
+          }
+        },
+        {
+          "name": "Get current account",
+          "request": {
+            "name": "Get current account",
+            "description": {},
+            "url": {
+              "path": ["v0", "me"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        },
+        {
+          "name": "Health check",
+          "request": {
+            "name": "Health check",
+            "description": {},
+            "url": {
+              "path": ["v0", "ping"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET",
+            "auth": null
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sfcompute.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9f1c0a2e-7b3d-4e5a-9c1f-2d6b8a4e0c11",
+    "name": "SF Compute API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the SF Compute GPU compute marketplace. Bearer token auth via `sf tokens create`.\n\nContact Support:\n Name: SF Compute Support\n Email: hello@sfcompute.com",
+      "type": "text/plain"
+    }
+  }
+}

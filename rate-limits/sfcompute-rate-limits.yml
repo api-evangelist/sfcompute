@@ -1,0 +1,64 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SF Compute
+providerId: sfcompute
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- GPU
+- Compute
+- Marketplace
+- H100
+- Spot Pricing
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  SF Compute does not publish specific numeric request-rate limits for the
+  api.sfcompute.com REST API. Practical constraints are economic rather than
+  request-rate based: order placement is bounded by available account balance,
+  by open market liquidity for the requested instance type, and by the quantity
+  of capacity a buyer can clear. The market-quote endpoint allows long-running
+  requests (the CLI uses a 600s client timeout). Specific per-account RPM/RPS
+  values are not reconciled in this artifact.
+notes: >-
+  Verify any documented request-rate limits and concurrency caps with SF
+  Compute support on reconciliation; the dominant limiters are balance and
+  market liquidity, not request throttling.
+sources:
+- https://docs.sfcompute.com/docs/using-the-api
+- https://fogdocs.sfcompute.com/api-reference
+- https://github.com/sfcompute/cli
+responseCodes:
+  throttled: 429
+limits:
+- name: API Requests
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: No published numeric REST request-rate limit; assume standard fair-use throttling.
+- name: Quote Request Duration
+  scope: request
+  metric: seconds
+  limit: long-running (CLI uses a 600s client timeout)
+  notes: Market quote requests may block while the orderbook is searched.
+- name: Order Placement
+  scope: account
+  metric: orders
+  limit: bounded by available balance and market liquidity
+  notes: Buy orders only fill against open sell-side liquidity for the instance type.
+- name: Capacity Quantity
+  scope: account
+  metric: nodes
+  limit: bounded by market availability
+  notes: Available H100/H200 quantity floats with seller supply.
+policies:
+- name: Economic Limiting
+  description: Spend is gated by account balance and orderbook liquidity rather than fixed request quotas.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

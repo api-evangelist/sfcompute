@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SF Compute API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List orders", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/orders" },
+          "docs": "List market orders with filtering, sorting, and pagination."
+        },
+        {
+          "info": { "name": "Place an order", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sfcompute.com/v0/orders",
+            "body": { "type": "json", "data": "{\n  \"side\": \"buy\",\n  \"instance_type\": \"h100i\",\n  \"quantity\": 8,\n  \"price\": 250000,\n  \"duration\": 86400,\n  \"start_at\": \"NOW\"\n}" }
+          },
+          "docs": "Place a buy or sell market order."
+        },
+        {
+          "info": { "name": "Cancel all open orders", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://api.sfcompute.com/v0/orders" },
+          "docs": "Cancel all open orders."
+        },
+        {
+          "info": { "name": "Get an order", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/orders/{id}" },
+          "docs": "Get a single order by id."
+        },
+        {
+          "info": { "name": "Cancel an order", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://api.sfcompute.com/v0/orders/{id}" },
+          "docs": "Cancel a single order by id."
+        },
+        {
+          "info": { "name": "Get clusters for an order", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/orders/{id}/clusters" },
+          "docs": "Get the clusters provisioned from a filled order."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Prices", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get a market quote", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/quote" },
+          "docs": "Request an indicative market price for a desired block of compute."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Contracts", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List contracts", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/contracts" },
+          "docs": "List tradable cluster contracts."
+        },
+        {
+          "info": { "name": "Get a contract", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/contracts/{id}" },
+          "docs": "Get a single contract by id."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Clusters", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List procurements", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/procurements" },
+          "docs": "List auto-scaling procurement fleets."
+        },
+        {
+          "info": { "name": "Create a procurement", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.sfcompute.com/v0/procurements", "body": { "type": "json", "data": "{}" } },
+          "docs": "Create an auto-scaling procurement."
+        },
+        {
+          "info": { "name": "Get a procurement", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/procurements/{id}" },
+          "docs": "Get a single procurement by id."
+        },
+        {
+          "info": { "name": "List instances", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/instances" },
+          "docs": "List instances."
+        },
+        {
+          "info": { "name": "List zones", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/zones" },
+          "docs": "List availability zones."
+        },
+        {
+          "info": { "name": "List credentials", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/credentials" },
+          "docs": "List cluster credentials (kubeconfig)."
+        },
+        {
+          "info": { "name": "List VM instances", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/vms/instances" },
+          "docs": "List VM instances."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Balance", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get account balance", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/balance" },
+          "docs": "Get available and current account balance in cents."
+        },
+        {
+          "info": { "name": "List transactions", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/transactions" },
+          "docs": "List account transactions."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Account", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List API tokens", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/tokens" },
+          "docs": "List API tokens."
+        },
+        {
+          "info": { "name": "Create an API token", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.sfcompute.com/v0/tokens", "body": { "type": "json", "data": "{}" } },
+          "docs": "Create an API token."
+        },
+        {
+          "info": { "name": "Delete an API token", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://api.sfcompute.com/v0/tokens/{id}" },
+          "docs": "Delete an API token by id."
+        },
+        {
+          "info": { "name": "Get current account", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/me" },
+          "docs": "Get the authenticated account."
+        },
+        {
+          "info": { "name": "Health check", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.sfcompute.com/v0/ping" },
+          "docs": "Service health check."
+        }
+      ]
+    }
+  ]
+}

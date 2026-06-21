@@ -1,0 +1,108 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: SF Compute
+providerId: sfcompute
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- GPU
+- Compute
+- Marketplace
+- H100
+- Spot Pricing
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of SF Compute spend. SF Compute is a spot-priced GPU market: cost
+  is the market-clearing price per block of GPU-hours rather than a fixed
+  per-GPU-hour rate. Buyers place priced buy orders that resolve into contracts;
+  unused contract time can be resold, creating an offsetting credit. Spend is
+  driven by GPU-hours consumed across instance types (h100i, h100v, h200ki),
+  the per-block clearing price, and any inference-fleet capacity. Balances and
+  transactions are exposed in cents via the API for reconciliation.
+notes: >-
+  Per-block prices float with the market and are not reconciled here; pull
+  /v0/balance and /v0/transactions for actuals and use /v0/quote for forward
+  cost estimates. reconciled=false because rates are market-driven.
+sources:
+- https://sfcompute.com/prices
+- https://docs.sfcompute.com/docs/how-the-market-works
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: SF Compute
+serviceCategory: Compute
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Usage
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Credit
+  - Adjustment
+focusColumns:
+  ServiceName: SF Compute GPU Market
+  ServiceCategory: Compute
+  ProviderName: SF Compute
+  PublisherName: SF Compute
+  InvoiceIssuerName: SF Compute
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: gpu_hours
+  description: GPU-hours consumed against filled buy orders, priced per block at the market-clearing rate.
+  unit: gpu_hours
+  aggregation: sum
+  dimensions:
+  - account
+  - instance_type
+  - contract
+- name: block_price_cents
+  description: Total clearing price in cents for a purchased block of compute.
+  unit: cents
+  aggregation: sum
+  dimensions:
+  - account
+  - order
+  - instance_type
+- name: resale_credit_cents
+  description: Credit in cents from reselling unused contract time back to the market.
+  unit: cents
+  aggregation: sum
+  dimensions:
+  - account
+  - contract
+- name: inference_gpu_hours
+  description: GPU-hours backing the OpenAI-compatible inference fleet.
+  unit: gpu_hours
+  aggregation: sum
+  dimensions:
+  - account
+  - model
+- name: balance_cents
+  description: Available and current account balance in cents.
+  unit: cents
+  aggregation: last
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Pull /v0/balance and /v0/transactions; inspect GPU-hours and per-block clearing prices.
+- name: Allocation
+  description: Tag API tokens and contracts per team/workload; map clusters to internal cost centers.
+- name: Optimization
+  description: Buy at off-peak market prices, right-size duration and node count, and resell unused contract time to recover spend.
+- name: Accountability
+  description: Assign owners per contract/token; review market spend and resale credits against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
