@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sfcompute-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'API token created with `sf tokens create`, sent as `Authorization: Bearer <token>`.'
+  sources:
+  - openapi/sfcompute-openapi.yml

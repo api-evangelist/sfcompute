@@ -145,6 +145,10 @@ apis:
     listed via the models endpoint and called through a standard chat completions
     interface, letting bought GPU capacity be exposed as an inference fleet.
 common:
+- type: DomainSecurity
+  url: security/sfcompute-domain-security.yml
+- type: Authentication
+  url: authentication/sfcompute-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/sfcompute
 - type: LinkedIn
@@ -159,6 +163,8 @@ common:
   url: rate-limits/sfcompute-rate-limits.yml
 - type: FinOps
   url: finops/sfcompute-finops.yml
+- url: https://sfcompute.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
