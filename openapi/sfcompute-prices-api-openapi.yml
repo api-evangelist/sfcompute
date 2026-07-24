@@ -1,0 +1,107 @@
+openapi: 3.0.1
+info:
+  title: SF Compute Account Prices API
+  description: REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.
+  termsOfService: https://sfcompute.com/terms
+  contact:
+    name: SF Compute Support
+    email: hello@sfcompute.com
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+security:
+- bearerAuth: []
+tags:
+- name: Prices
+paths:
+  /quote:
+    get:
+      operationId: getQuote
+      tags:
+      - Prices
+      summary: Get a market quote
+      description: Request an indicative market price for a desired instance type, quantity, start window, and duration. Returns a quote with the price in cents from which a per-GPU-hour rate can be derived. There is no single fixed price per GPU-hour; each block is priced by the market.
+      parameters:
+      - name: side
+        in: query
+        schema:
+          type: string
+          enum:
+          - buy
+          - sell
+      - name: instance_type
+        in: query
+        schema:
+          type: string
+          example: h100i
+      - name: quantity
+        in: query
+        schema:
+          type: integer
+      - name: min_start_date
+        in: query
+        schema:
+          type: string
+          description: ISO 8601 timestamp or the literal "NOW".
+      - name: max_start_date
+        in: query
+        schema:
+          type: string
+      - name: min_duration
+        in: query
+        schema:
+          type: integer
+          description: Minimum duration in seconds.
+      - name: max_duration
+        in: query
+        schema:
+          type: integer
+      - name: cluster
+        in: query
+        schema:
+          type: string
+      - name: colocate_with
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A market quote, or null when no block is available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+components:
+  schemas:
+    Quote:
+      type: object
+      properties:
+        price:
+          type: integer
+          description: Total price in cents for the quoted block.
+        quantity:
+          type: integer
+        instance_type:
+          type: string
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time
+    QuoteResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - quote
+        quote:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Quote'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API token created with `sf tokens create`, sent as `Authorization: Bearer <token>`.'

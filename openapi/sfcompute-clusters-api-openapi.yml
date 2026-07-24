@@ -1,0 +1,118 @@
+openapi: 3.0.1
+info:
+  title: SF Compute Account Clusters API
+  description: REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.
+  termsOfService: https://sfcompute.com/terms
+  contact:
+    name: SF Compute Support
+    email: hello@sfcompute.com
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+security:
+- bearerAuth: []
+tags:
+- name: Clusters
+paths:
+  /orders/{id}/clusters:
+    get:
+      operationId: getOrderClusters
+      tags:
+      - Clusters
+      summary: Get clusters for an order
+      description: Returns the clusters provisioned from a filled order.
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Clusters associated with the order.
+  /procurements:
+    get:
+      operationId: listProcurements
+      tags:
+      - Clusters
+      summary: List procurements
+      description: List auto-scaling procurement fleets.
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of procurements.
+    post:
+      operationId: createProcurement
+      tags:
+      - Clusters
+      summary: Create a procurement
+      description: Create an auto-scaling procurement that maintains a target quantity of capacity.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created procurement.
+  /procurements/{id}:
+    get:
+      operationId: getProcurement
+      tags:
+      - Clusters
+      summary: Get a procurement
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: The procurement.
+  /zones:
+    get:
+      operationId: listZones
+      tags:
+      - Clusters
+      summary: List zones
+      responses:
+        '200':
+          description: A list of availability zones.
+  /credentials:
+    get:
+      operationId: listCredentials
+      tags:
+      - Clusters
+      summary: List credentials
+      responses:
+        '200':
+          description: A list of cluster credentials (kubeconfig).
+    post:
+      operationId: createCredential
+      tags:
+      - Clusters
+      summary: Create a credential
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created credential.
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API token created with `sf tokens create`, sent as `Authorization: Bearer <token>`.'

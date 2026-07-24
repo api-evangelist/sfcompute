@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: SF Compute Account Nodes API
+  description: REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.
+  termsOfService: https://sfcompute.com/terms
+  contact:
+    name: SF Compute Support
+    email: hello@sfcompute.com
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+security:
+- bearerAuth: []
+tags:
+- name: Nodes
+paths:
+  /instances:
+    get:
+      operationId: listInstances
+      tags:
+      - Nodes
+      summary: List instances
+      responses:
+        '200':
+          description: A list of instances.
+  /instances/{id}:
+    get:
+      operationId: getInstance
+      tags:
+      - Nodes
+      summary: Get an instance
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: The instance.
+  /vms/instances:
+    get:
+      operationId: listVmInstances
+      tags:
+      - Nodes
+      summary: List VM instances
+      responses:
+        '200':
+          description: A list of VM instances.
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API token created with `sf tokens create`, sent as `Authorization: Bearer <token>`.'

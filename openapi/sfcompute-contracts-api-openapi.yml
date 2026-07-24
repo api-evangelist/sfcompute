@@ -1,0 +1,110 @@
+openapi: 3.0.1
+info:
+  title: SF Compute Account Contracts API
+  description: REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.
+  termsOfService: https://sfcompute.com/terms
+  contact:
+    name: SF Compute Support
+    email: hello@sfcompute.com
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+security:
+- bearerAuth: []
+tags:
+- name: Contracts
+paths:
+  /contracts:
+    get:
+      operationId: listContracts
+      tags:
+      - Contracts
+      summary: List contracts
+      responses:
+        '200':
+          description: A list of contracts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContractList'
+  /contracts/{id}:
+    get:
+      operationId: getContract
+      tags:
+      - Contracts
+      summary: Get a contract
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: The contract.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+components:
+  schemas:
+    ContractList:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contract'
+    Contract:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - contract
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - expired
+          - upcoming
+          - pending
+        instance_type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        cluster_id:
+          type: string
+        zone:
+          type: string
+        colocate_with:
+          type: array
+          items:
+            type: string
+        shape:
+          type: object
+          properties:
+            intervals:
+              type: array
+              items:
+                type: string
+                format: date-time
+            quantities:
+              type: array
+              items:
+                type: integer
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API token created with `sf tokens create`, sent as `Authorization: Bearer <token>`.'
