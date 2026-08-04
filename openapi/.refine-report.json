@@ -1,0 +1,26 @@
+{
+  "provider": "sfcompute",
+  "sources": [
+    "sfcompute-account-api-openapi.yml",
+    "sfcompute-balance-api-openapi.yml",
+    "sfcompute-clusters-api-openapi.yml",
+    "sfcompute-contracts-api-openapi.yml",
+    "sfcompute-nodes-api-openapi.yml",
+    "sfcompute-orders-api-openapi.yml",
+    "sfcompute-prices-api-openapi.yml"
+  ],
+  "outputs": [
+    "sfcompute-account-api-openapi.yml",
+    "sfcompute-balance-api-openapi.yml",
+    "sfcompute-clusters-api-openapi.yml",
+    "sfcompute-contracts-api-openapi.yml",
+    "sfcompute-nodes-api-openapi.yml",
+    "sfcompute-orders-api-openapi.yml",
+    "sfcompute-prices-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
