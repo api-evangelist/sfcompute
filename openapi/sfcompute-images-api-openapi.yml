@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: SF Compute Account Images API
+  description: 'SF Compute (San Francisco Compute Company) operates a market for buying
+
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+
+    '
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Images
+paths:
+  /api/vms/images:
+    get:
+      tags:
+      - Images
+      summary: List images
+      operationId: listImages
+      responses:
+        '200':
+          description: Images
+  /api/images/upload/start:
+    post:
+      tags:
+      - Images
+      summary: Start image upload
+      operationId: startImageUpload
+      responses:
+        '200':
+          description: Upload session
+  /api/images/upload/data:
+    post:
+      tags:
+      - Images
+      summary: Upload image data
+      operationId: uploadImageData
+      responses:
+        '200':
+          description: Chunk accepted
+  /api/images/upload/complete:
+    post:
+      tags:
+      - Images
+      summary: Complete image upload
+      operationId: completeImageUpload
+      responses:
+        '200':
+          description: Upload complete
+  /api/images/{id}/download:
+    get:
+      tags:
+      - Images
+      summary: Download image
+      operationId: downloadImage
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Image binary
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token

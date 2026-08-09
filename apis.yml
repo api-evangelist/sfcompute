@@ -2,11 +2,10 @@ aid: sfcompute
 url: https://raw.githubusercontent.com/api-evangelist/sfcompute/refs/heads/main/apis.yml
 name: SF Compute
 kind: company
-description: SF Compute (San Francisco Compute Company) runs a spot-priced market for
-  very large scale GPU clusters. The api.sfcompute.com REST API lets buyers and sellers
-  place market orders for blocks of H100 GPU-hours, manage tradable cluster contracts,
-  query live market prices, check balances, and provision managed Kubernetes clusters,
-  nodes, and VMs - all driven by the `sf` CLI and language SDKs.
+description: SF Compute (San Francisco Compute Company) runs a spot-priced market for very large scale
+  GPU clusters. The api.sfcompute.com REST API lets buyers and sellers place market orders for blocks
+  of H100 GPU-hours, manage tradable cluster contracts, query live market prices, check balances, and
+  provision managed Kubernetes clusters, nodes, and VMs - all driven by the `sf` CLI and language SDKs.
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -28,7 +27,7 @@ tags:
 - H100
 - Spot Pricing
 created: '2026-06-21'
-modified: '2026-06-21'
+modified: '2026-08-08'
 specificationVersion: '0.19'
 apis:
 - aid: sfcompute:sfcompute-account-api
@@ -236,6 +235,60 @@ common:
   url: finops/sfcompute-finops.yml
 - url: https://sfcompute.com/blog
   type: Blog
+- type: Developer
+  url: https://docs.sfcompute.com
+- type: Signup
+  url: https://sfcompute.com/signup
+- type: Login
+  url: https://sfcompute.com/signin
+- type: Pricing
+  url: https://sfcompute.com/prices
+- type: ChangeLog
+  url: https://sfcompute.com/changelog
+- type: Support
+  url: https://sfcompute.com/contact
+- name: sf CLI
+  url: https://github.com/sfcompute/cli
+  type: CLI
+- name: Nodes API Go SDK
+  url: https://github.com/sfcompute/nodes-go
+  type: SDKs
+- type: Features
+  data:
+  - name: Market-Based GPU Pricing
+    description: Per-node hourly pricing fluctuates with supply and demand, with no long-term contracts.
+  - name: Flexible Node Reservations
+    description: Reserve any number of H100 or H200 nodes for custom durations and start times.
+  - name: Managed Slurm Clusters
+    description: Slurm-scheduled clusters available on request for larger training jobs.
+  - name: Bare Metal Clusters
+    description: Direct bare-metal access for advanced workloads on request.
+  - name: Hardware Failure Refunds
+    description: Automatic refunds for failed nodes with hardware-level monitoring.
+  - name: Cancel Anytime
+    description: Cancel or resell unused capacity without penalty.
+  url: ''
+- type: GPUs
+  data:
+  - name: NVIDIA H100
+    description: 80GB Hopper GPU nodes available with market-based pricing (around $1.97/hr average).
+  - name: NVIDIA H200
+    description: 141GB HBM3e Hopper GPU nodes available for hourly and longer-term rental.
+  - name: NVIDIA B300
+    description: Blackwell Ultra GPU nodes listed as upcoming on the SF Compute roadmap.
+  url: ''
+- type: Customers
+  data:
+  - name: NVIDIA
+  - name: Roboflow
+  - name: Datology
+  - name: Liquid AI
+  - name: MIT
+  url: ''
+- type: LlmsText
+  url: https://docs.sfcompute.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-merged-from:
+- sf-compute

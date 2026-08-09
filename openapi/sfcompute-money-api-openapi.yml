@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: SF Compute Account Money API
+  description: 'SF Compute (San Francisco Compute Company) operates a market for buying
+
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+
+    '
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Money
+paths:
+  /api/money/balance:
+    get:
+      tags:
+      - Money
+      summary: Get current account balance
+      operationId: getBalance
+      responses:
+        '200':
+          description: Balance
+  /api/money/credits:
+    get:
+      tags:
+      - Money
+      summary: Get current credit balance
+      operationId: getCredits
+      responses:
+        '200':
+          description: Credits
+  /api/money/refunds:
+    get:
+      tags:
+      - Money
+      summary: Get refunds status
+      operationId: getRefunds
+      responses:
+        '200':
+          description: Refunds
+  /api/money/transactions:
+    get:
+      tags:
+      - Money
+      summary: Get transactions
+      operationId: getTransactions
+      responses:
+        '200':
+          description: Transactions
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token

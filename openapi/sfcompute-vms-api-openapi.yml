@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: SF Compute Account VMs API
+  description: 'SF Compute (San Francisco Compute Company) operates a market for buying
+
+    short-duration time on H100 and H200 GPU clusters. This OpenAPI definition
+
+    documents the public REST API surface advertised at https://docs.sfcompute.com.
+
+    '
+  version: v0
+servers:
+- url: https://api.sfcompute.com/v0
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: VMs
+paths:
+  /api/vms/instances:
+    get:
+      tags:
+      - VMs
+      summary: List VM instances
+      operationId: listVmInstances
+      responses:
+        '200':
+          description: Instances
+  /api/vms/replace:
+    post:
+      tags:
+      - VMs
+      summary: Replace VM
+      operationId: replaceVm
+      responses:
+        '200':
+          description: Replaced
+  /api/vms/{id}/logs:
+    get:
+      tags:
+      - VMs
+      summary: Get VM logs
+      operationId: getVmLogs
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Logs
+  /api/vms/{id}/ssh:
+    get:
+      tags:
+      - VMs
+      summary: Get SSH info
+      operationId: getVmSsh
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: SSH info
+  /api/vms/{id}/startup-script:
+    get:
+      tags:
+      - VMs
+      summary: Get startup script
+      operationId: getVmStartupScript
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Script
+    post:
+      tags:
+      - VMs
+      summary: Set startup script
+      operationId: setVmStartupScript
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Saved
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token
