@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "07dacd22-6265-4988-b90c-e0fb1bffe2d2",
+      "name": "Prices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "804d2b43-504c-4d23-b001-1963b58ee7b2",
+          "name": "Get a market quote",
+          "request": {
+            "name": "Get a market quote",
+            "description": {
+              "content": "Request an indicative market price for a desired instance type, quantity, start window, and duration. Returns a quote with the price in cents from which a per-GPU-hour rate can be derived. There is no single fixed price per GPU-hour; each block is priced by the market.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "instance_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_start_date",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_duration",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_duration",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cluster",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "colocate_with",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e21c365-5f26-4116-bdd2-edd1da2cb8cd",
+              "name": "A market quote, or null when no block is available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "instance_type",
+                      "value": "h100i"
+                    },
+                    {
+                      "key": "quantity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "min_start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_duration",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_duration",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "cluster",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "colocate_with",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"quote\",\n  \"quote\": {\n    \"price\": 723,\n    \"quantity\": 8590,\n    \"instance_type\": \"string\",\n    \"start_at\": \"1989-12-10T14:05:50.038Z\",\n    \"end_at\": \"2016-04-01T16:34:02.466Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sfcompute.com/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6d2b630-2375-48dd-9409-2887352d0217",
+    "name": "SF Compute Account Prices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.\n\nContact Support:\n Name: SF Compute Support\n Email: hello@sfcompute.com",
+      "type": "text/plain"
+    }
+  }
+}

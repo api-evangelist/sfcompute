@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "6a28277e-41a9-4533-9fc8-e22365688afc",
+      "name": "Contracts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3e2be4d-1bf2-409e-b73a-2acfdaba3ec3",
+          "name": "List contracts",
+          "request": {
+            "name": "List contracts",
+            "description": {},
+            "url": {
+              "path": [
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "632df5cb-1051-4c19-97d3-0506d0ca5c4a",
+              "name": "A list of contracts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"contract\",\n      \"id\": \"string\",\n      \"status\": \"pending\",\n      \"instance_type\": \"string\",\n      \"created_at\": \"1991-02-27T07:28:15.775Z\",\n      \"cluster_id\": \"string\",\n      \"zone\": \"string\",\n      \"colocate_with\": [\n        \"string\",\n        \"string\"\n      ],\n      \"shape\": {\n        \"intervals\": [\n          \"2008-12-31T17:56:45.992Z\",\n          \"1990-12-23T01:47:37.833Z\"\n        ],\n        \"quantities\": [\n          6416,\n          81\n        ]\n      }\n    },\n    {\n      \"object\": \"contract\",\n      \"id\": \"string\",\n      \"status\": \"pending\",\n      \"instance_type\": \"string\",\n      \"created_at\": \"1999-02-26T22:26:32.053Z\",\n      \"cluster_id\": \"string\",\n      \"zone\": \"string\",\n      \"colocate_with\": [\n        \"string\",\n        \"string\"\n      ],\n      \"shape\": {\n        \"intervals\": [\n          \"2023-02-19T03:20:04.807Z\",\n          \"2026-05-05T20:29:48.298Z\"\n        ],\n        \"quantities\": [\n          6638,\n          1686\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6af635ba-f2ff-4bfe-9789-e14545fda663",
+          "name": "Get a contract",
+          "request": {
+            "name": "Get a contract",
+            "description": {},
+            "url": {
+              "path": [
+                "contracts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50dbd4a6-709f-4265-b517-12e9f0c1f9bb",
+              "name": "The contract.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"contract\",\n  \"id\": \"string\",\n  \"status\": \"expired\",\n  \"instance_type\": \"string\",\n  \"created_at\": \"1987-11-30T19:41:40.174Z\",\n  \"cluster_id\": \"string\",\n  \"zone\": \"string\",\n  \"colocate_with\": [\n    \"string\",\n    \"string\"\n  ],\n  \"shape\": {\n    \"intervals\": [\n      \"1946-11-02T02:27:57.422Z\",\n      \"1953-11-12T04:53:14.531Z\"\n    ],\n    \"quantities\": [\n      3415,\n      4619\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sfcompute.com/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97d2f908-69b1-4dc6-b076-27039f5486c3",
+    "name": "SF Compute Account Contracts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.\n\nContact Support:\n Name: SF Compute Support\n Email: hello@sfcompute.com",
+      "type": "text/plain"
+    }
+  }
+}

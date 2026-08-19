@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SF Compute Account Prices API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a market quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/quote",
+            "params": [
+              {
+                "name": "side",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "instance_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "quantity",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_duration",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_duration",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "colocate_with",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Request an indicative market price for a desired instance type, quantity, start window, and duration. Returns a quote with the price in cents from which a per-GPU-hour rate can be derived. There is no single fixed price per GPU-hour; each block is priced by the market."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

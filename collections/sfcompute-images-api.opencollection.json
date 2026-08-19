@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SF Compute Account Images API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/vms/images"
+          },
+          "docs": "List images"
+        },
+        {
+          "info": {
+            "name": "Start image upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sfcompute.com/v0/api/images/upload/start"
+          },
+          "docs": "Start image upload"
+        },
+        {
+          "info": {
+            "name": "Upload image data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sfcompute.com/v0/api/images/upload/data"
+          },
+          "docs": "Upload image data"
+        },
+        {
+          "info": {
+            "name": "Complete image upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sfcompute.com/v0/api/images/upload/complete"
+          },
+          "docs": "Complete image upload"
+        },
+        {
+          "info": {
+            "name": "Download image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/images/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,648 @@
+{
+  "item": [
+    {
+      "id": "1fa87a0a-bd9a-4a83-8767-e8401a738412",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee376d17-fbcd-4e03-8bc4-5661cb1b1f48",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "List market orders for the authenticated account with filtering, sorting, and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "side",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "instance_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_price",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_price",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_open",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_filled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_cancelled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bb811e8-7e96-4e43-bc56-21bb9cf9025c",
+              "name": "A list of orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "side",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "instance_type",
+                      "value": "h100i"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "only_open",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only_filled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "only_cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"order\",\n      \"id\": \"string\",\n      \"side\": \"buy\",\n      \"instance_type\": \"h100i\",\n      \"price\": 8246,\n      \"quantity\": 6726,\n      \"start_at\": \"1997-04-09T04:11:28.672Z\",\n      \"end_at\": \"1969-04-01T19:07:11.707Z\",\n      \"status\": \"pending\",\n      \"executed\": false,\n      \"execution_price\": 2260,\n      \"cancelled\": false,\n      \"cluster\": \"string\",\n      \"created_at\": \"1954-05-31T19:22:08.556Z\",\n      \"flags\": {\n        \"market\": false,\n        \"post_only\": false,\n        \"ioc\": true,\n        \"prorate\": true\n      }\n    },\n    {\n      \"object\": \"order\",\n      \"id\": \"string\",\n      \"side\": \"sell\",\n      \"instance_type\": \"h100i\",\n      \"price\": 405,\n      \"quantity\": 1288,\n      \"start_at\": \"2017-03-22T09:01:47.898Z\",\n      \"end_at\": \"1996-09-11T18:49:54.720Z\",\n      \"status\": \"filled\",\n      \"executed\": false,\n      \"execution_price\": 9942,\n      \"cancelled\": true,\n      \"cluster\": \"string\",\n      \"created_at\": \"1983-08-05T05:14:14.550Z\",\n      \"flags\": {\n        \"market\": true,\n        \"post_only\": true,\n        \"ioc\": false,\n        \"prorate\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24090ccf-34ab-4a3f-9803-966a3fb5c050",
+          "name": "Place an order",
+          "request": {
+            "name": "Place an order",
+            "description": {
+              "content": "Place a buy or sell market order. Buy orders specify an instance type, quantity, price, duration, and start time. Sell orders list time from an existing contract back to the market.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"side\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<integer>\",\n  \"instance_type\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"start_at\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd9b0789-e7cd-445b-a910-9a2ebdcea017",
+              "name": "The placed order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"side\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<integer>\",\n  \"instance_type\": \"h100i\",\n  \"duration\": \"<integer>\",\n  \"start_at\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"order\",\n  \"id\": \"string\",\n  \"side\": \"buy\",\n  \"instance_type\": \"h100i\",\n  \"price\": 757,\n  \"quantity\": 1911,\n  \"start_at\": \"1957-03-20T03:55:15.866Z\",\n  \"end_at\": \"1986-05-31T01:19:26.619Z\",\n  \"status\": \"expired\",\n  \"executed\": true,\n  \"execution_price\": 4688,\n  \"cancelled\": true,\n  \"cluster\": \"string\",\n  \"created_at\": \"2007-07-08T22:04:29.392Z\",\n  \"flags\": {\n    \"market\": false,\n    \"post_only\": false,\n    \"ioc\": true,\n    \"prorate\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e80be35b-3b8e-4d78-8d99-201438f2df5d",
+          "name": "Cancel all open orders",
+          "request": {
+            "name": "Cancel all open orders",
+            "description": {},
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56693516-c643-4dc0-b39a-81c91dd43f20",
+              "name": "Orders cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6892de6-4901-4c3c-92da-70d5f8857e3a",
+          "name": "Get an order",
+          "request": {
+            "name": "Get an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "384f23a2-a503-4b53-a521-68c467208b6f",
+              "name": "The order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"order\",\n  \"id\": \"string\",\n  \"side\": \"buy\",\n  \"instance_type\": \"h100i\",\n  \"price\": 757,\n  \"quantity\": 1911,\n  \"start_at\": \"1957-03-20T03:55:15.866Z\",\n  \"end_at\": \"1986-05-31T01:19:26.619Z\",\n  \"status\": \"expired\",\n  \"executed\": true,\n  \"execution_price\": 4688,\n  \"cancelled\": true,\n  \"cluster\": \"string\",\n  \"created_at\": \"2007-07-08T22:04:29.392Z\",\n  \"flags\": {\n    \"market\": false,\n    \"post_only\": false,\n    \"ioc\": true,\n    \"prorate\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cfe2cc8-8c67-4c97-97b3-d83dc37a8cf6",
+          "name": "Cancel an order",
+          "request": {
+            "name": "Cancel an order",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b588a19f-8c0c-4f70-b3a9-3922222e0698",
+              "name": "Order cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2910733b-193c-4b35-93bf-3259fc273c13",
+          "name": "Get clusters for an order",
+          "request": {
+            "name": "Get clusters for an order",
+            "description": {
+              "content": "Returns the clusters provisioned from a filled order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":id",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "474a16f3-3095-406c-a738-f1e277aae461",
+              "name": "Clusters associated with the order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":id",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sfcompute.com/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "29f48587-944e-4ef4-b56b-1c92f06d3203",
+    "name": "SF Compute Account Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.\n\nContact Support:\n Name: SF Compute Support\n Email: hello@sfcompute.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+# San Francisco Compute Docs
+
+> San Francisco Compute is a market for very large scale GPU clusters.
+
+## Docs
+
+- [Quickstart](https://docs.sfcompute.com/preview/quick-start.md): Get your first GPU instance running
+- [Using the API](https://docs.sfcompute.com/preview/using-the-api.md): Authenticate and make your first API request
+- [Instances and Pools](https://docs.sfcompute.com/preview/guides/instances-and-pools.md): How instances and pools separate what you run from the compute time it runs on
+- [Auto-scaling](https://docs.sfcompute.com/preview/guides/auto-scaling.md): Scale a fleet by changing the desired instance count
+- [Reselling](https://docs.sfcompute.com/preview/guides/reselling.md): Recover credits by selling unused compute time
+- [Roadmap](https://docs.sfcompute.com/preview/roadmap.md): Development priorities, feature states, and the public preview support policy
+- [Instances](https://docs.sfcompute.com/preview/instances.md): Create, connect to, and manage GPU compute instances
+- [SKUs](https://docs.sfcompute.com/preview/instance-skus.md): Pick the hardware your orders run on
+- [Images](https://docs.sfcompute.com/preview/images.md): Build, upload, and manage custom images
+- [IP Addresses](https://docs.sfcompute.com/preview/networking/ip-addresses.md): Give an instance a public IPv4 address for internet access
+- [Firewalls](https://docs.sfcompute.com/preview/networking/firewalls.md): Control inbound traffic to an instance with ingress rules
+- [Tags](https://docs.sfcompute.com/preview/tags.md): Track and organize resources with key-value pairs
+- [Instance templates](https://docs.sfcompute.com/preview/instance-templates.md): Reusable instance configurations for deployments
+- [Pools](https://docs.sfcompute.com/preview/pools.md): Manage compute allocation
+- [Orders](https://docs.sfcompute.com/preview/orders.md): Buy and sell compute time
+- [Deployments](https://docs.sfcompute.com/preview/deployments.md): Automate instance creation and management
+- [Spot deployments](https://docs.sfcompute.com/preview/spot-deployments.md): Buy interruptible compute time and maintain instances up to a target
+- [Orderbook](https://docs.sfcompute.com/preview/orderbook.md): Read the public orderbook: windows, quotes, depth, and fills
+- [Workspaces](https://docs.sfcompute.com/preview/workspaces.md): Group resources to isolate teams or environments
+- [Resource paths](https://docs.sfcompute.com/preview/resource-paths.md): Human-readable references for resources across the API and CLI
+- [Roles](https://docs.sfcompute.com/preview/roles.md): Create and manage roles, named sets of permissions you assign with grants
+- [Tokens](https://docs.sfcompute.com/preview/tokens.md): Create and manage bearer tokens that authenticate API and CLI requests
+- [Grants](https://docs.sfcompute.com/preview/grants.md): Assign roles to users and tokens
+- [List deployments](https://docs.sfcompute.com/preview/api-reference/deployments/list-deployments.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create deployment](https://docs.sfcompute.com/preview/api-reference/deployments/create-deployment.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get deployment](https://docs.sfcompute.com/preview/api-reference/deployments/get-deployment.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete deployment](https://docs.sfcompute.com/preview/api-reference/deployments/delete-deployment.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Update deployment](https://docs.sfcompute.com/preview/api-reference/deployments/update-deployment.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List firewalls](https://docs.sfcompute.com/preview/api-reference/firewalls/list-firewalls.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create firewall](https://docs.sfcompute.com/preview/api-reference/firewalls/create-firewall.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get firewall](https://docs.sfcompute.com/preview/api-reference/firewalls/get-firewall.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Replace a firewall's rules](https://docs.sfcompute.com/preview/api-reference/firewalls/replace-a-firewalls-rules.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete firewall](https://docs.sfcompute.com/preview/api-reference/firewalls/delete-firewall.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List images](https://docs.sfcompute.com/preview/api-reference/images/list-images.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create image](https://docs.sfcompute.com/preview/api-reference/images/create-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get image](https://docs.sfcompute.com/preview/api-reference/images/get-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete image](https://docs.sfcompute.com/preview/api-reference/images/delete-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Complete image upload](https://docs.sfcompute.com/preview/api-reference/images/complete-image-upload.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Download image](https://docs.sfcompute.com/preview/api-reference/images/download-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get upload part URL](https://docs.sfcompute.com/preview/api-reference/images/get-upload-part-url.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Reinstate image](https://docs.sfcompute.com/preview/api-reference/images/reinstate-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Revoke image](https://docs.sfcompute.com/preview/api-reference/images/revoke-image.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List images](https://docs.sfcompute.com/preview/api-reference/images/list-images-1.md): List images in the specified workspace. Pass `sfc:workspace:sfcompute:public` as the workspace to list sfc-provided public images instead.
+- [Create image](https://docs.sfcompute.com/preview/api-reference/images/create-image-1.md): Create an image and start a multipart upload.
+- [Get image](https://docs.sfcompute.com/preview/api-reference/images/get-image-1.md): Retrieve an image by ID. Returns both user-owned and public images.
+- [Delete image](https://docs.sfcompute.com/preview/api-reference/images/delete-image-1.md): Delete an image.
+- [Complete image upload](https://docs.sfcompute.com/preview/api-reference/images/complete-image-upload-1.md): Finalize a multipart image upload.
+- [Download image](https://docs.sfcompute.com/preview/api-reference/images/download-image-1.md): Get a presigned URL to download an image.
+- [Get upload part URL](https://docs.sfcompute.com/preview/api-reference/images/get-upload-part-url-1.md): Get a presigned URL to upload one part of a multipart image upload.
+- [Reinstate image](https://docs.sfcompute.com/preview/api-reference/images/reinstate-image-1.md): Reinstate a revoked image, making it available for new instances again
+- [Revoke image](https://docs.sfcompute.com/preview/api-reference/images/revoke-image-1.md): Revoke a private image. Revoked images can't back new instances; existing instances continue running.
+- [List instance SKUs](https://docs.sfcompute.com/preview/api-reference/instance-skus/list-instance-skus.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List instance-SKU availability](https://docs.sfcompute.com/preview/api-reference/instance-skus/list-instance-sku-availability.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance SKU](https://docs.sfcompute.com/preview/api-reference/instance-skus/get-instance-sku.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance-SKU availability](https://docs.sfcompute.com/preview/api-reference/instance-skus/get-instance-sku-availability.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List instance templates](https://docs.sfcompute.com/preview/api-reference/instance-templates/list-instance-templates.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create instance template](https://docs.sfcompute.com/preview/api-reference/instance-templates/create-instance-template.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance template](https://docs.sfcompute.com/preview/api-reference/instance-templates/get-instance-template.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete instance template](https://docs.sfcompute.com/preview/api-reference/instance-templates/delete-instance-template.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List instances](https://docs.sfcompute.com/preview/api-reference/instances/list-instances.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create instance](https://docs.sfcompute.com/preview/api-reference/instances/create-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Update multiple instances](https://docs.sfcompute.com/preview/api-reference/instances/update-multiple-instances.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance](https://docs.sfcompute.com/preview/api-reference/instances/get-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete instance](https://docs.sfcompute.com/preview/api-reference/instances/delete-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Update instance](https://docs.sfcompute.com/preview/api-reference/instances/update-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance logs](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-logs.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Replace instance](https://docs.sfcompute.com/preview/api-reference/instances/replace-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get instance SSH info](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-ssh-info.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Terminate instance](https://docs.sfcompute.com/preview/api-reference/instances/terminate-instance.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List instances](https://docs.sfcompute.com/preview/api-reference/instances/list-instances-1.md): List all instances.
+- [Create instance](https://docs.sfcompute.com/preview/api-reference/instances/create-instance-1.md): Create an instance.
+- [Get instance](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-1.md): Retrieve an instance by ID or name.
+- [Delete instance](https://docs.sfcompute.com/preview/api-reference/instances/delete-instance-1.md): Delete an instance.
+- [Update instance](https://docs.sfcompute.com/preview/api-reference/instances/update-instance-1.md): Update an instance. Omitted fields are left unchanged.
+- [Get instance cloud-init user data](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-cloud-init-user-data.md): Retrieve the cloud-init user data an instance was created with. Whether an instance has any is reported by the `cloud_init_user_data_used` field on the instance itself.
+- [Get instance logs](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-logs-1.md): Retrieve logs for an instance.
+- [Replace instance](https://docs.sfcompute.com/preview/api-reference/instances/replace-instance-1.md): Terminates the target instance and creates a fresh one on the same capacity and SKU with a new image (and optionally a new startup script and name). Capacity, SKU, subnet, public IPv4, firewall, tags, and priority are inherited from the replaced instance. The two operations happen in a single transa…
+- [Get instance SSH info](https://docs.sfcompute.com/preview/api-reference/instances/get-instance-ssh-info-1.md): Retrieve SSH connection details for an instance.
+- [Terminate instance](https://docs.sfcompute.com/preview/api-reference/instances/terminate-instance-1.md): Terminates a running instance. Terminated instances can not be restarted.
+- [Get the authenticated account and logged-in user](https://docs.sfcompute.com/preview/api-reference/account/get-the-authenticated-account-and-logged-in-user.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Estimate an order](https://docs.sfcompute.com/preview/api-reference/orders/estimate-an-order.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List orders](https://docs.sfcompute.com/preview/api-reference/orders/list-orders.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create order](https://docs.sfcompute.com/preview/api-reference/orders/create-order.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get order](https://docs.sfcompute.com/preview/api-reference/orders/get-order.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Cancel order](https://docs.sfcompute.com/preview/api-reference/orders/cancel-order.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List orders](https://docs.sfcompute.com/preview/api-reference/orders/list-orders-1.md): List all orders.
+- [Create order](https://docs.sfcompute.com/preview/api-reference/orders/create-order-1.md): Place a buy or sell order. Orders fill on a single instance SKU matching the order's `requirements`. By default orders fill completely or not at all; set `allow_partial` to permit a partial fill. Order filling is asynchronous; poll `GET /v2/orders/{id}` to check the order's state.
+- [Get order](https://docs.sfcompute.com/preview/api-reference/orders/get-order-1.md): Retrieve an order by ID.
+- [Cancel order](https://docs.sfcompute.com/preview/api-reference/orders/cancel-order-1.md): Request cancellation of an order. Because cancellation is asynchronous, the order may match more capacity and add entries to `fills` after this request returns but before its state changes to `cancelled`. Poll `GET /v2/orders/{id}` until then. At that point, `fills` and `filled_allocation_schedule_d…
+- [Get market depth](https://docs.sfcompute.com/preview/api-reference/orderbook/get-market-depth.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List market fills](https://docs.sfcompute.com/preview/api-reference/orderbook/list-market-fills.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get market quote](https://docs.sfcompute.com/preview/api-reference/orderbook/get-market-quote.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List market windows](https://docs.sfcompute.com/preview/api-reference/orderbook/list-market-windows.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List pools](https://docs.sfcompute.com/preview/api-reference/pools/list-pools.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create pool](https://docs.sfcompute.com/preview/api-reference/pools/create-pool.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get pool](https://docs.sfcompute.com/preview/api-reference/pools/get-pool.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete pool](https://docs.sfcompute.com/preview/api-reference/pools/delete-pool.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Update pool](https://docs.sfcompute.com/preview/api-reference/pools/update-pool.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List pool transfers](https://docs.sfcompute.com/preview/api-reference/pools/list-pool-transfers.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create pool transfer](https://docs.sfcompute.com/preview/api-reference/pools/create-pool-transfer.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get pool transfer](https://docs.sfcompute.com/preview/api-reference/pools/get-pool-transfer.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List pools](https://docs.sfcompute.com/preview/api-reference/pools/list-pools-1.md): List all pools.
+- [Create pool](https://docs.sfcompute.com/preview/api-reference/pools/create-pool-1.md): Create a pool to hold compute.
+- [Get pool](https://docs.sfcompute.com/preview/api-reference/pools/get-pool-1.md): Retrieve a pool by ID, resource path, or name, including its compute schedule.
+- [Delete pool](https://docs.sfcompute.com/preview/api-reference/pools/delete-pool-1.md): Delete a pool. The pool must have no active orders, future allocations, active nodes, deployments, or procurements. Remove all dependencies before deleting.
+- [Update pool](https://docs.sfcompute.com/preview/api-reference/pools/update-pool-1.md): Update a pool. Omitted fields are left unchanged.
+- [List users](https://docs.sfcompute.com/preview/api-reference/users/list-users.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get user](https://docs.sfcompute.com/preview/api-reference/users/get-user.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List workspaces](https://docs.sfcompute.com/preview/api-reference/workspaces/list-workspaces.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Create workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/create-workspace.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Get workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/get-workspace.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Delete workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/delete-workspace.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [Update workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/update-workspace.md): > ⚠️ This endpoint is in [public preview](/preview/roadmap#feature-states).
+- [List workspaces](https://docs.sfcompute.com/preview/api-reference/workspaces/list-workspaces-1.md): List all workspaces for the authenticated account, newest first.
+- [Create workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/create-workspace-1.md): Create a workspace.
+- [Get workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/get-workspace-1.md): Retrieve a workspace by ID or resource path.
+- [Delete workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/delete-workspace-1.md): Soft-delete a workspace by ID or resource path. Workspace must be empty (no capacities, instance templates, or images).
+- [Update workspace](https://docs.sfcompute.com/preview/api-reference/workspaces/update-workspace-1.md): Rename a workspace.
+- [List SKUs](https://docs.sfcompute.com/preview/api-reference/skus/list-skus.md): List the SKUs available on the market with their properties.
+- [List SKU availability](https://docs.sfcompute.com/preview/api-reference/skus/list-sku-availability.md): The purchasable-capacity schedule of every SKU, optionally narrowed by a `sku_query` property filter.
+- [Get SKU](https://docs.sfcompute.com/preview/api-reference/skus/get-sku.md): Retrieve a SKU by ID, including its properties.
+- [Get SKU availability](https://docs.sfcompute.com/preview/api-reference/skus/get-sku-availability.md): The purchasable-capacity schedule of one SKU.

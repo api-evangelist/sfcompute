@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SF Compute Account Money API",
+    "version": "v0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Money",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current account balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/money/balance"
+          },
+          "docs": "Get current account balance"
+        },
+        {
+          "info": {
+            "name": "Get current credit balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/money/credits"
+          },
+          "docs": "Get current credit balance"
+        },
+        {
+          "info": {
+            "name": "Get refunds status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/money/refunds"
+          },
+          "docs": "Get refunds status"
+        },
+        {
+          "info": {
+            "name": "Get transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sfcompute.com/v0/api/money/transactions"
+          },
+          "docs": "Get transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
