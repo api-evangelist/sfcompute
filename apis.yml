@@ -62,6 +62,8 @@ apis:
   humanURL: https://docs.sfcompute.com/docs/using-the-api
   baseURL: https://api.sfcompute.com/v0
   tags:
+  - Balances
+  tags_raw:
   - Balance
   properties:
   - type: OpenAPI
@@ -88,6 +90,8 @@ apis:
   humanURL: https://docs.sfcompute.com/docs/using-the-api
   baseURL: https://api.sfcompute.com/v0
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -166,6 +170,8 @@ apis:
   humanURL: https://docs.sfcompute.com/docs/using-the-api
   baseURL: https://api.sfcompute.com/v0
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
