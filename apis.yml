@@ -218,6 +218,36 @@ apis:
     url: https://docs.sfcompute.com/docs/using-the-api
   - type: Documentation
     url: https://docs.sfcompute.com/guide/inference-fleet
+- aid: sfcompute:sfcompute-images-api
+  name: SF Compute Images API
+  description: The Images API from SF Compute — 5 operation(s) for images.
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/sfcompute-images-api-openapi.yml
+- aid: sfcompute:sfcompute-money-api
+  name: SF Compute Money API
+  description: The Money API from SF Compute — 4 operation(s) for money.
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - Money
+  properties:
+  - type: OpenAPI
+    url: openapi/sfcompute-money-api-openapi.yml
+- aid: sfcompute:sfcompute-vms-api
+  name: SF Compute V Ms API
+  description: The VMs API from SF Compute — 5 operation(s) for vms.
+  humanURL: https://docs.sfcompute.com/docs/using-the-api
+  baseURL: https://api.sfcompute.com/v0
+  tags:
+  - VMs
+  properties:
+  - type: OpenAPI
+    url: openapi/sfcompute-vms-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/sfcompute-agentic-access.yml
