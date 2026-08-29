@@ -6,6 +6,18 @@ description: SF Compute (San Francisco Compute Company) runs a spot-priced marke
   GPU clusters. The api.sfcompute.com REST API lets buyers and sellers place market orders for blocks
   of H100 GPU-hours, manage tradable cluster contracts, query live market prices, check balances, and
   provision managed Kubernetes clusters, nodes, and VMs - all driven by the `sf` CLI and language SDKs.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
