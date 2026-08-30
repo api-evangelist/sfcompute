@@ -1,0 +1,44 @@
+slug: sfcompute
+provider: SF Compute
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Electrical Components & Equipment
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: VMs
+  spec_file: sfcompute-vms-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST /api/vms/replace replaceVm; GET /api/vms/{id}/logs; GET /api/vms/{id}/ssh Get SSH info;
+    POST /api/vms/{id}/startup-script
+  reason: Lifecycle and access operations on GPU virtual machines are cloud compute infrastructure management.
+- tag: Clusters
+  spec_file: sfcompute-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /procurements  createProcurement  Create a procurement; GET /zones  listZones  List zones;
+    POST /credentials  createCredential
+  reason: Despite the 'procurement' wording, these operations provision and manage GPU clusters, zones
+    and access credentials for managed compute — compute/cloud infrastructure management, not sourcing.
+    Mapped to IT Infrastructure Management.
+- tag: Nodes
+  spec_file: sfcompute-nodes-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /instances listInstances; GET /vms/instances listVmInstances
+  reason: Despite the 'Nodes' tag, operations list compute instances and VM instances — cloud compute
+    infrastructure inventory.

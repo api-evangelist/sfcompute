@@ -261,6 +261,9 @@ apis:
   - type: OpenAPI
     url: openapi/sfcompute-vms-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/sfcompute-capability-edges.yml
+  name: SF Compute Business Capability Map
 - type: AgenticAccess
   url: agentic-access/sfcompute-agentic-access.yml
 - type: DomainSecurity
