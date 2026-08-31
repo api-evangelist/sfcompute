@@ -236,6 +236,8 @@ apis:
   humanURL: https://docs.sfcompute.com/docs/using-the-api
   baseURL: https://api.sfcompute.com/v0
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
