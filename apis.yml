@@ -157,6 +157,8 @@ apis:
   humanURL: https://docs.sfcompute.com/docs/using-the-api
   baseURL: https://api.sfcompute.com/v0
   tags:
+  - Node
+  tags_raw:
   - Nodes
   properties:
   - type: OpenAPI
