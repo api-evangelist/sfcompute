@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: keyword-prefilter
+  read: '2026-09-20'
 published: true
 note: Marketing home page; states an average market GPU-hour rate ($2.11) plus illustrative resale calculator
   figures. Custom H100/B300/GB300 clusters require contacting the team; no tiered plans listed.
