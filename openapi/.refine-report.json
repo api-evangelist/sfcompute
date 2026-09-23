@@ -1,13 +1,10 @@
 {
   "provider": "sfcompute",
   "sources": [
-    "sfcompute-account-api-openapi.yml",
-    "sfcompute-balance-api-openapi.yml",
-    "sfcompute-clusters-api-openapi.yml",
-    "sfcompute-contracts-api-openapi.yml",
-    "sfcompute-nodes-api-openapi.yml",
-    "sfcompute-orders-api-openapi.yml",
-    "sfcompute-prices-api-openapi.yml"
+    "_original/sfcompute-openapi.yml",
+    "sfcompute-images-api-openapi.yml",
+    "sfcompute-money-api-openapi.yml",
+    "sfcompute-v-ms-api-openapi.yml"
   ],
   "outputs": [
     "sfcompute-account-api-openapi.yml",
@@ -16,11 +13,30 @@
     "sfcompute-contracts-api-openapi.yml",
     "sfcompute-nodes-api-openapi.yml",
     "sfcompute-orders-api-openapi.yml",
-    "sfcompute-prices-api-openapi.yml"
+    "sfcompute-prices-api-openapi.yml",
+    "sfcompute-images-api-openapi.yml",
+    "sfcompute-money-api-openapi.yml",
+    "sfcompute-v-ms-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "warnings": [
+    "sfcompute-images-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /api/images/upload/complete post, /api/images/upload/data post, /api/images/upload/start post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "sfcompute-money-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /api/money/balance get, /api/money/credits get, /api/money/refunds get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "sfcompute-v-ms-api-openapi.yml: previously refined output kept for 6 operation(s) no archived document covers (e.g. /api/vms/instances get, /api/vms/replace post, /api/vms/{id}/logs get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sfcompute-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sfcompute-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-balance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-contracts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sfcompute-prices-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

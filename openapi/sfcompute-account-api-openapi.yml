@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: SF Compute Account API
   description: REST API for the SF Compute (San Francisco Compute Company) GPU compute marketplace. Place buy/sell market orders for blocks of H100 GPU-hours, list and retrieve tradable cluster contracts, request live market quotes, read account balance, and provision managed-Kubernetes clusters, nodes, and VM instances. All endpoints require a Bearer API token generated with `sf tokens create`.
