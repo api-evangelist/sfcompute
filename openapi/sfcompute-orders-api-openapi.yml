@@ -170,6 +170,33 @@ components:
           type: boolean
         prorate:
           type: boolean
+    PlaceSellOrder:
+      type: object
+      required:
+      - side
+      - quantity
+      - price
+      - start_at
+      - end_at
+      - contract_id
+      properties:
+        side:
+          type: string
+          enum:
+          - sell
+        quantity:
+          type: integer
+        price:
+          type: integer
+          description: Total price in cents.
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time
+        contract_id:
+          type: string
     PlaceBuyOrder:
       type: object
       required:
@@ -249,33 +276,6 @@ components:
           format: date-time
         flags:
           $ref: '#/components/schemas/OrderFlags'
-    PlaceSellOrder:
-      type: object
-      required:
-      - side
-      - quantity
-      - price
-      - start_at
-      - end_at
-      - contract_id
-      properties:
-        side:
-          type: string
-          enum:
-          - sell
-        quantity:
-          type: integer
-        price:
-          type: integer
-          description: Total price in cents.
-        start_at:
-          type: string
-          format: date-time
-        end_at:
-          type: string
-          format: date-time
-        contract_id:
-          type: string
     OrderList:
       type: object
       properties:

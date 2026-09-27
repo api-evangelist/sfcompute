@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: SF Compute Account V Ms API
+  title: SF Compute Account V Ms VMs API
   description: 'SF Compute (San Francisco Compute Company) operates a market for buying
 
     short-duration time on H100 and H200 GPU clusters. This OpenAPI definition

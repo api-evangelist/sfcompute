@@ -44,6 +44,17 @@ paths:
                 $ref: '#/components/schemas/Contract'
 components:
   schemas:
+    ContractList:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contract'
     Contract:
       type: object
       properties:
@@ -85,17 +96,6 @@ components:
               type: array
               items:
                 type: integer
-    ContractList:
-      type: object
-      properties:
-        object:
-          type: string
-          enum:
-          - list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contract'
   parameters:
     IdParam:
       name: id
