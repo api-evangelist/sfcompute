@@ -152,6 +152,73 @@ paths:
           description: Clusters associated with the order.
 components:
   schemas:
+    PlaceSellOrder:
+      type: object
+      required:
+      - side
+      - quantity
+      - price
+      - start_at
+      - end_at
+      - contract_id
+      properties:
+        side:
+          type: string
+          enum:
+          - sell
+        quantity:
+          type: integer
+        price:
+          type: integer
+          description: Total price in cents.
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time
+        contract_id:
+          type: string
+    OrderFlags:
+      type: object
+      properties:
+        market:
+          type: boolean
+        post_only:
+          type: boolean
+        ioc:
+          type: boolean
+        prorate:
+          type: boolean
+    PlaceBuyOrder:
+      type: object
+      required:
+      - side
+      - quantity
+      - price
+      - instance_type
+      - duration
+      - start_at
+      properties:
+        side:
+          type: string
+          enum:
+          - buy
+        quantity:
+          type: integer
+          description: Number of nodes.
+        price:
+          type: integer
+          description: Total price in cents.
+        instance_type:
+          type: string
+          example: h100i
+        duration:
+          type: integer
+          description: Duration in seconds.
+        start_at:
+          type: string
+          description: ISO 8601 timestamp or "NOW".
     Order:
       type: object
       properties:
@@ -202,73 +269,6 @@ components:
           format: date-time
         flags:
           $ref: '#/components/schemas/OrderFlags'
-    PlaceSellOrder:
-      type: object
-      required:
-      - side
-      - quantity
-      - price
-      - start_at
-      - end_at
-      - contract_id
-      properties:
-        side:
-          type: string
-          enum:
-          - sell
-        quantity:
-          type: integer
-        price:
-          type: integer
-          description: Total price in cents.
-        start_at:
-          type: string
-          format: date-time
-        end_at:
-          type: string
-          format: date-time
-        contract_id:
-          type: string
-    PlaceBuyOrder:
-      type: object
-      required:
-      - side
-      - quantity
-      - price
-      - instance_type
-      - duration
-      - start_at
-      properties:
-        side:
-          type: string
-          enum:
-          - buy
-        quantity:
-          type: integer
-          description: Number of nodes.
-        price:
-          type: integer
-          description: Total price in cents.
-        instance_type:
-          type: string
-          example: h100i
-        duration:
-          type: integer
-          description: Duration in seconds.
-        start_at:
-          type: string
-          description: ISO 8601 timestamp or "NOW".
-    OrderFlags:
-      type: object
-      properties:
-        market:
-          type: boolean
-        post_only:
-          type: boolean
-        ioc:
-          type: boolean
-        prorate:
-          type: boolean
     OrderList:
       type: object
       properties:

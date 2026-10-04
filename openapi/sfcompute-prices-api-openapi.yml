@@ -73,6 +73,16 @@ paths:
                 $ref: '#/components/schemas/QuoteResponse'
 components:
   schemas:
+    QuoteResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - quote
+        quote:
+          allOf:
+          - $ref: '#/components/schemas/Quote'
     Quote:
       type: object
       properties:
@@ -89,16 +99,6 @@ components:
         end_at:
           type: string
           format: date-time
-    QuoteResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          enum:
-          - quote
-        quote:
-          allOf:
-          - $ref: '#/components/schemas/Quote'
   securitySchemes:
     bearerAuth:
       type: http
