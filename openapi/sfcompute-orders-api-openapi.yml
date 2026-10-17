@@ -152,44 +152,6 @@ paths:
           description: Clusters associated with the order.
 components:
   schemas:
-    PlaceSellOrder:
-      type: object
-      required:
-      - side
-      - quantity
-      - price
-      - start_at
-      - end_at
-      - contract_id
-      properties:
-        side:
-          type: string
-          enum:
-          - sell
-        quantity:
-          type: integer
-        price:
-          type: integer
-          description: Total price in cents.
-        start_at:
-          type: string
-          format: date-time
-        end_at:
-          type: string
-          format: date-time
-        contract_id:
-          type: string
-    OrderFlags:
-      type: object
-      properties:
-        market:
-          type: boolean
-        post_only:
-          type: boolean
-        ioc:
-          type: boolean
-        prorate:
-          type: boolean
     PlaceBuyOrder:
       type: object
       required:
@@ -219,6 +181,28 @@ components:
         start_at:
           type: string
           description: ISO 8601 timestamp or "NOW".
+    OrderList:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    OrderFlags:
+      type: object
+      properties:
+        market:
+          type: boolean
+        post_only:
+          type: boolean
+        ioc:
+          type: boolean
+        prorate:
+          type: boolean
     Order:
       type: object
       properties:
@@ -269,17 +253,33 @@ components:
           format: date-time
         flags:
           $ref: '#/components/schemas/OrderFlags'
-    OrderList:
+    PlaceSellOrder:
       type: object
+      required:
+      - side
+      - quantity
+      - price
+      - start_at
+      - end_at
+      - contract_id
       properties:
-        object:
+        side:
           type: string
           enum:
-          - list
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
+          - sell
+        quantity:
+          type: integer
+        price:
+          type: integer
+          description: Total price in cents.
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time
+        contract_id:
+          type: string
   parameters:
     IdParam:
       name: id
